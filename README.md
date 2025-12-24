@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StreamHub - Personal IPTV Web Player
+
+A modern, web-based IPTV player built with Next.js 14, TypeScript, and Tailwind CSS.
+
+## Project Status
+
+**Current Iteration: 3 (Complete)** ✅
+
+### Completed Features
+
+#### Iteration 1: Foundation
+- ✅ Next.js 14 with App Router and TypeScript
+- ✅ Tailwind CSS with dark mode theme
+- ✅ Project structure with organized components
+- ✅ Base layout (Header, Sidebar, Main)
+- ✅ UI components (Button, Input, Card, Skeleton)
+- ✅ TypeScript type definitions
+- ✅ Zustand state management setup
+- ✅ ESLint and Prettier configuration
+
+#### Iteration 2: M3U Parser
+- ✅ M3U/M3U8 playlist parser implementation
+- ✅ Extract channel metadata (tvg-id, tvg-name, tvg-logo, group-title)
+- ✅ Handle various playlist formats and edge cases
+- ✅ Load playlists from URL or File object
+- ✅ Generate unique channel IDs
+- ✅ Organize channels into groups
+- ✅ Comprehensive error handling
+- ✅ Test page at `/test-parser`
+
+#### Iteration 3: CORS Proxy
+- ✅ Cloudflare Worker implementation
+- ✅ CORS header handling
+- ✅ M3U8 URL rewriting for HLS streams
+- ✅ Support for video segments (.ts, .mp4)
+- ✅ Streaming response (no buffering)
+- ✅ Range request support
+- ✅ Proxy utility functions for Next.js
+- ✅ Deployment configuration and documentation
 
 ## Getting Started
 
-First, run the development server:
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+### Linting
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npm run type-check
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Format Code
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run format
+```
 
-## Deploy on Vercel
+## Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **State Management:** Zustand
+- **Video Player:** hls.js (Iteration 4)
+- **Icons:** Lucide React
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```
+streamhub/
+├── src/
+│   ├── app/
+│   │   ├── api/proxy/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   └── globals.css
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── layout/
+│   │   ├── player/
+│   │   └── channels/
+│   ├── lib/
+│   ├── store/
+│   ├── types/
+│   └── hooks/
+├── public/
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
+```
+
+## Testing
+
+### Parser Tests
+Visit [http://localhost:3000/test-parser](http://localhost:3000/test-parser) to test the M3U parser:
+- Basic M3U parsing
+- Edge cases (missing attributes, malformed entries, special characters)
+- URL loading (try: https://iptv-org.github.io/iptv/countries/us.m3u)
+
+## Deployment
+
+See [DEPLOYMENT.md](../DEPLOYMENT.md) for complete deployment instructions.
+
+### Quick Start - Cloudflare Worker
+
+```bash
+cd ../cloudflare-worker
+npm install
+npx wrangler login
+npm run deploy:prod
+```
+
+Copy the worker URL and add to `streamhub/.env.local`:
+```env
+NEXT_PUBLIC_PROXY_URL=https://your-worker.workers.dev
+```
+
+## Upcoming Iterations
+
+- **Iteration 4:** Video Player Component (HLS.js)
+- **Iteration 5:** Channel List & Search UI
+- **Iteration 6:** Polish, Settings & PWA
+
+## Development Methodology
+
+This project follows an Agile development approach with 6 planned iterations. Each iteration builds upon the previous one, adding functionality incrementally.
+
+## License
+
+Personal project - All rights reserved
