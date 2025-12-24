@@ -41,7 +41,7 @@ export default function Home() {
   const { favorites, toggleFavorite} = useFavorites();
   const { preferences, updatePreferences } = usePreferences();
   const { playlists, addPlaylist, removePlaylist, setActivePlaylist, activePlaylistId } = usePlaylists();
-  const { epgData, getPrograms, getCurrentProgram } = useEPG(playlist?.epgUrl);
+  const { getPrograms, getCurrentProgram } = useEPG(playlist?.epgUrl);
 
   const [selectedLanguage, setSelectedLanguage] = useState<string>(preferences.defaultLanguage);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>(preferences.viewMode);
@@ -126,7 +126,7 @@ export default function Home() {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     return filteredChannels.slice(startIndex, endIndex);
-  }, [filteredChannels, currentPage]);
+  }, [filteredChannels, currentPage, ITEMS_PER_PAGE]);
 
   const totalPages = Math.ceil(filteredChannels.length / ITEMS_PER_PAGE);
 
