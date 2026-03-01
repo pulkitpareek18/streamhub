@@ -1,5 +1,17 @@
 # StreamHub
 
+[![CI](https://github.com/pulkitpareek18/streamhub/actions/workflows/ci.yml/badge.svg)](https://github.com/pulkitpareek18/streamhub/actions/workflows/ci.yml)
+![Last Commit](https://img.shields.io/github/last-commit/pulkitpareek18/streamhub)
+![Stars](https://img.shields.io/github/stars/pulkitpareek18/streamhub)
+![Tech](https://img.shields.io/badge/Stack-Next.js%20%7C%20TypeScript-blue)
+
+## Release Snapshot (March 2026)
+
+- Status: Active
+- Type: Personal IPTV web player
+- Live app: https://streamhub-one.vercel.app
+- CI checks: install, lint, type-check, and production build
+
 StreamHub is a personal IPTV web player built with Next.js and TypeScript, designed for fast playlist loading, clean channel discovery, and HLS playback.
 
 ## Features
