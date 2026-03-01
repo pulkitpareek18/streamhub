@@ -12,6 +12,10 @@
 - Live app: https://streamhub-one.vercel.app
 - CI checks: install, lint, type-check, and production build
 
+## Demo Card
+
+[![StreamHub Demo Card](https://opengraph.githubassets.com/1/pulkitpareek18/streamhub)](https://streamhub-one.vercel.app)
+
 StreamHub is a personal IPTV web player built with Next.js and TypeScript, designed for fast playlist loading, clean channel discovery, and HLS playback.
 
 ## Features
